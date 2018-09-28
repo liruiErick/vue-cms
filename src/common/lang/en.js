@@ -272,11 +272,15 @@ let en_local = {
     shop: {
       name: "name",
       address: "address",
+      addressTotal: "addressTotal",
       description: "description",
       id: "id",
       phone: "phone",
       rating: "rating",
-      category: "category"
+      category: "category",
+      sales: "sales",
+      lb_roleForm_title:'handleTitle',
+      imgPath: "shopPic"
     }
 }
 

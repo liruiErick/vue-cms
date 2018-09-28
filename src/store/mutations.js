@@ -342,10 +342,25 @@ const state = {
        pageInfo: {},
        docs: []
      }
-   }
+   },
+  category:{
+    formState: {
+      show: false,
+      edit: false,
+      formData: {
+      }
+    },
+    categoryList: {
+      pageInfo: {},
+      docs: []
+    }
+  }
 }
 
 const mutations = {
+    [types.CATEGORYLIST](state, categoryList) {
+      state.category.categoryList = categoryList;
+    },
     [types.SHOPLIST](state, shoplist) {
       state.shop.shopList = shoplist;
     },

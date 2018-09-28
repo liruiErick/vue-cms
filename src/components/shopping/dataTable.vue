@@ -9,7 +9,7 @@
               <el-form-item label="店铺名称">
                 <span>{{ props.row.name }}</span>
               </el-form-item>
-              <el-form-item label="店铺地址">
+              <el-form-item label="详细地址">
                 <span>{{ props.row.address }}</span>
               </el-form-item>
               <el-form-item label="店铺 ID">
@@ -26,6 +26,12 @@
               </el-form-item>
               <el-form-item label="分类">
                 <span>{{ props.row.category }}</span>
+              </el-form-item>
+              <el-form-item label="销售量">
+                <span>{{ props.row.recent_order_num }}</span>
+              </el-form-item>
+              <el-form-item label="店铺地址">
+                <span>{{ props.row.addressTotals }}</span>
               </el-form-item>
             </el-form>
           </template>
@@ -47,16 +53,45 @@
 </template>
 
 <script>
-import services from "../../store/services.js";
+  import axios from 'axios'
 export default {
   props: {
     dataList: Array
   },
   data() {
-    return {};
+    return {
+      mapJson:'../../../static/json/map.json',
+      province:'',
+      city:'',
+      block:'',
+    };
   },
-
+  created() {
+//    this.handleData(this.dataList)
+  },
   methods: {
+//    handleData(data){
+//      var that = this
+//      data.forEach(function (value,index) {
+//        axios.get(that.mapJson).then(function(res){
+//          if (res.status===200) {
+//            var data = res.data
+//            for (var item in data) {
+//              if (item === value.addressTotal.split('/')[0]) {//省
+//                value.addressTotal = data[item]
+//              } else if (item === value.addressTotal.split('/')[1]) {//市
+//                value.addressTotal += +'/'+data[item]+'/'
+//              } else if (item === value.addressTotal.split('/')[2]) {//区
+//                value.addressTotal += data[item]
+//              }
+//            }
+//          }
+//          else{
+//            console.log(res.status)
+//          }
+//        })
+//      })
+//    },
     toggleSelection(rows) {
       if (rows) {
         rows.forEach(row => {

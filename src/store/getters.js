@@ -32,4 +32,5 @@ export default {
     templateItemForderList: state => state.myTemplates.templateItemForderList,
     tempShoplist: state => state.tempShoplist,
     shopList: state => state.shop,
+    categoryList: state => state.category
 }

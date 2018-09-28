@@ -31,11 +31,17 @@ export function renderTreeData(result) {
 }
 
 export default {
+  getCategoryList({
+                commit
+              }, params = {}) {
+    services.getCategoryList(params).then((result) => {
+      commit(types.CATEGORYLIST, result.data.data)
+    })
+  },
   getShopList({
                      commit
                    }, params = {}) {
     services.getShopList(params).then((result) => {
-      debugger
       commit(types.SHOPLIST, result.data.data)
     })
   },
@@ -146,7 +152,6 @@ export default {
     edit: false,
     formData: {}
   }) => {
-    debugger
     commit(types.SHOPLISTSTATE, {
       show: true,
       edit: params.edit,

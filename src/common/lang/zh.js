@@ -272,13 +272,16 @@ let zh_local = {
     },
     shop: {
       name: "店铺名称",
-      address: "店铺地址",
+      address: "详细地址",
+      addressTotal: "店铺地址",
       description: "店铺简介",
       id: " 店铺 ID",
       phone: "联系电话",
-      rating: " 评分",
-      category: " 分类",
-      lb_roleForm_title:'填写店铺信息'
+      rating: "评分",
+      category: "店铺分类",
+      sales: "销售量",
+      lb_roleForm_title:'填写店铺信息',
+      imgPath: "店铺图片"
     }
 }
 
