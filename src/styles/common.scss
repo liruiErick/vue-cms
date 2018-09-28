@@ -1,0 +1,484 @@
+/*--------------------------------------------------------cssReset----------------------------------------------------*/
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: PingFang SC, Helvetica Neue, Helvetica, Arial, Hiragino Sans GB, Microsoft Yahei, \\5FAE\8F6F\96C5\9ED1, STHeiti, \\534E\6587\7EC6\9ED1, sans-serif;
+  color: #666;
+  font-size: 14px;
+}
+
+a {
+  font-style: normal;
+  text-decoration: none;
+  color: #5079d9;
+  cursor: pointer;
+  transition: all .15s ease-out;
+  &:hover {
+    color: #6b95ea;
+  }
+}
+
+li {
+  list-style-type: none;
+}
+
+input,
+img,
+button {
+  border: none;
+  outline: none;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-size: 100%;
+  font-weight: 400;
+}
+
+i, em {
+  font-style: normal;
+}
+
+input[type=number], textarea {
+  -moz-appearance: textfield;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button,
+input[type="submit"],
+input[type="search"],
+input[type="reset"] {
+  -webkit-appearance: none;
+}
+
+::-webkit-input-placeholder { /* WebKit browsers */
+  color: #BEBEBE;
+}
+
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+  color: #BEBEBE;
+}
+
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+  color: #BEBEBE;
+}
+
+:-ms-input-placeholder { /* Internet Explorer 10+ */
+  color: #BEBEBE;
+}
+
+/*--------------------------------------------------------common----------------------------------------------------*/
+.w {
+  width: 1200px;
+  margin: 0 auto;
+}
+
+button {
+  cursor: pointer;
+  outline: 0;
+  border: 0
+}
+
+button:disabled {
+  background: gray;
+  cursor: default
+}
+
+select, input {
+  padding: 0;
+}
+
+textarea {
+  outline: 0;
+  resize: none;
+  font: 12px "microsoft yahei", Arial, sans-serif;
+  border: 1px solid #bebebe
+}
+
+img {
+  border: 0;
+  vertical-align: bottom
+}
+
+a {
+  display: inline-block;
+  text-decoration: none;
+  color: #333
+}
+
+a:hover {
+  color: #333
+}
+
+a:focus {
+  outline: 0
+}
+
+a.line {
+  text-decoration: underline
+}
+
+a.h-line:hover {
+  text-decoration: underline
+}
+
+.fl {
+  float: left
+}
+
+.fr {
+  float: right
+}
+
+.d-n {
+  display: none
+}
+
+.d-b {
+  display: block
+}
+
+.d-i-b {
+  display: inline-block
+}
+
+.d-t {
+  display: table
+}
+
+.m-a {
+  margin: auto
+}
+
+.clearfix:after {
+  content: '';
+  display: block;
+  clear: both;
+  line-height: 0;
+  visibility: hidden;
+}
+
+.clearfix {
+  *zoom: 1
+}
+
+.ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.p-r {
+  position: relative;
+}
+
+.p-r-z {
+  position: relative;
+  zoom: 1;
+}
+
+.o-h {
+  overflow: hidden;
+}
+
+.fs-12 {
+  font-size: 12px;
+}
+
+.fs-14 {
+  font-size: 14px;
+}
+
+.fs-20 {
+  font-size: 20px;
+}
+
+.fw-n {
+  font-weight: normal;
+}
+
+.fw-b {
+  font-weight: bold;
+}
+
+.t-l {
+  text-align: left;
+}
+
+.t-c {
+  text-align: center;
+}
+
+.t-r {
+  text-align: right;
+}
+
+.t-j {
+  text-align: justify;
+  text-justify: inter-ideograph;
+}
+
+.c-p {
+  cursor: pointer;
+}
+
+.c-d {
+  cursor: default;
+}
+
+.c-h {
+  cursor: help;
+}
+
+.c-m {
+  cursor: move;
+}
+
+.u-s-n {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+}
+
+.ml0 {
+  margin-left: 0 !important;
+}
+
+.mtp14 {
+  margin-top: 14px
+}
+
+.mtp20 {
+  margin-top: 20px
+}
+
+.mtp26 {
+  margin-top: 26px
+}
+
+.mtp40 {
+  margin-top: 40px
+}
+
+.mtp60 {
+  margin-top: 60px
+}
+
+.mtp80 {
+  margin-top: 80px
+}
+
+.mtp96 {
+  margin-top: 96px
+}
+
+.mtp102 {
+  margin-top: 102px
+}
+
+.mtp120 {
+  margin-top: 120px
+}
+
+.mbt56 {
+  margin-bottom: 56px
+}
+
+.mbt24 {
+  margin-bottom: 24px
+}
+
+.mbt26 {
+  margin-bottom: 26px
+}
+
+.pt30 {
+  padding-top: 30px;
+}
+
+.pl5 {
+  padding-left: 5px
+}
+
+.pr5 {
+  padding-right: 5px
+}
+
+.pbt26 {
+  padding-bottom: 26px
+}
+
+.plr10 {
+  padding: 0 10px;
+}
+
+.mbt20 {
+  margin-bottom: 20px
+}
+
+.mr10 {
+  margin-right: 10px
+}
+.mr80 {
+  margin-right: 80px
+}
+.ml10 {
+  margin-left: 10px
+}
+
+.ml180 {
+  margin-left: 180px;
+}
+
+.ml240 {
+  margin-left: 240px;
+}
+
+.ml815 {
+  margin-left: 815px !important;
+}
+
+.mtp80 {
+  margin: 80px 0;
+}
+
+.mt100 {
+  margin-top: 100px;
+}
+
+.more {
+  color: #777
+}
+
+.minH800 {
+  min-height: 900px
+}
+
+.minH600 {
+  min-height: 600px
+}
+
+.minH400 {
+  min-height: 400px
+}
+
+.btn {
+  display: inline-block;
+  text-align: center;
+  border-radius: 3px;
+  width: 90px;
+  cursor: pointer;
+  height: 32px;
+  line-height: 32px
+}
+
+.avatar {
+  width: 146px;
+  height: 146px;
+  display: inline-block;
+  float: left;
+}
+
+.btn-ui {
+  background: #3ad4b0;
+  border: none
+}
+
+.btn-check {
+  border: none !important;
+  color: #3ad4b0 !important;
+  background: #fff !important;
+  margin-right: 28px !important;
+}
+
+.btn-edit {
+  color: #3ad4b0 !important;
+  background: #fff !important;
+  margin-right: 28px !important;
+  width: 80px !important;
+  height: 28px !important;
+  border: 1px solid #3ad4b0 !important;
+  border-radius: 4px;
+}
+
+.btn-delete {
+  color: #f85041 !important;
+  background: #fff !important;
+  margin-right: 28px !important;
+  width: 80px !important;
+  height: 28px !important;
+  border: 1px solid #f85041 !important;
+  border-radius: 4px;
+}
+
+.btn-add {
+  width: 100px;
+  height: 32px;
+  color: #3ad4b0;
+  border: 1px solid #3ad4b0;
+  background: #fff;
+  border-radius: 4px;
+}
+
+.el-select .el-input.is-focus .el-input__inner, .el-input__inner:focus, .el-textarea__inner:focus {
+  border-color: #3ad4b0 !important;
+}
+
+.el-menu-item.is-active {
+  color: #3ad4b0 !important;
+  font-size: 14px !important;
+  font-weight: bold;
+  font-family: "Microsoft YaHei", "微软雅黑";
+}
+
+.el-submenu__title {
+  font-size: 16px !important;
+}
+
+.el-submenu.is-active .el-submenu__title {
+  color: #3ad4b0 !important;
+  border-left: 1px solid #3ad4b0;
+  height: 52px !important;
+}
+
+.el-submenu .el-menu-item {
+  padding: 0 0 0 30px !important;
+}
+
+.el-submenu__title i {
+  color: #3ad4b0 !important;
+}
+
+.el-card__header {
+  font-size: 16px;
+  font-family: "Microsoft YaHei", "微软雅黑";
+  color: #999;
+}
+
+.el-pagination.is-background .el-pager li:not(.disabled).active {
+  background: #3ad4b0 !important;
+  color: #fff;
+}
+
+.el-dropdown-menu__item:hover {
+  color: #333 !important;
+  background: #f4f4f4 !important;
+}
+
+.el-carousel__container {
+  height: 282px!important;
+}
+
+.comment,.brief,.meal {
+  .header {
+    img {
+      vertical-align: middle;
+      margin-top: 2px;
+    }
+  }
+}

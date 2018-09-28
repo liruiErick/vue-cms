@@ -1,0 +1,526 @@
+@import "common";
+@import "vars";
+@import "mixin";
+@import "animation";
+/*---------------------------------------------基础样式---------------------------------------------------------------*/
+.w {
+  width: 1200px;
+  margin: 0 auto;
+  clear: both;
+}
+
+.app-wrap {
+  clear: both
+}
+
+.btn-primary {
+  color: $white;
+  background: $blue
+}
+
+.btn-cancel {
+  color: $white;
+  background: $grey
+}
+
+.operation-btns .btn {
+  margin-right: 60px
+}
+
+.operation-btns .btn:last-child {
+  margin-right: 0
+}
+
+.fl {
+  float: left
+}
+
+.fr {
+  float: right
+}
+
+.clearfix {
+  *zoom: 1;
+}
+
+.clearfix:after {
+  display: table;
+  content: '';
+  clear: both;
+}
+
+.f-color-red {
+  color: $red
+}
+
+.f-color-blue {
+  color: $blue
+}
+
+.app-nav-bottom {
+  img {
+    width: 100%;
+  }
+}
+
+//首页轮播
+.index-banner-carousel {
+  .el-carousel__container {
+    height: 540px !important
+  }
+  .el-carousel__item {
+    .title {
+      text-align: right;
+      color: $white;
+      width: 100%;
+      font-size: 18px;
+      height: 40px;
+      line-height: 40px;
+      position: absolute;
+      box-sizing: border-box;
+      padding-right: 20px;
+      bottom: 0;
+      right: 0;
+      background: rgba(0, 0, 0, 0.3);
+    }
+    img {
+      //width:100%;
+    }
+  }
+}
+
+//index-title组件样式
+.index-title {
+  margin: 60px auto 76px;
+  font-family: "Microsoft YaHei";
+  .cnWord {
+    font-size: 36px;
+    font-weight: bold;
+    color: #333;
+  }
+  .enWord {
+    padding: 16px 0;
+    color: #999;
+    font-size: 18px;
+  }
+  .line {
+  }
+}
+
+//登录
+.login-banner {
+  position: relative;
+  height: 800px;
+  background-size: cover;
+
+  .login-form {
+    margin-top: 180px;
+    background: $white;
+    border-radius: 3px;
+    overflow: hidden;
+    padding: 22px;
+    box-sizing: border-box;
+    .login {
+      input:focus {
+        border: 1px solid #3ad4b0;
+      }
+    }
+    .login-form-title {
+      //height: 30px;
+      font-size: 16px;
+      margin-bottom: 20px;
+    }
+    .login-form-ctrl {
+      button {
+        width: 100%;
+        background: linear-gradient(rgb(61, 210, 174), rgb(76, 185, 206));
+        border: none;
+        font-size: 16px;
+        font-weight: bold;
+      }
+    }
+    .reg-form-ctrl {
+      .el-form-item__content {
+        line-height: 28px;
+      }
+
+    }
+    .login-form-tips {
+      color: #b3b3b3;
+      a {
+        color: #b3b3b3;
+      }
+      .tips-reset-pass {
+        text-align: right;
+        a:hover {
+          font-size: 14px;
+          color: #3ad4b0;
+          font-family: "Microsoft YaHei", "微软雅黑";
+        }
+      }
+      .tips-login {
+        color: $blue
+      }
+    }
+    .tips-login {
+      color: #b3b3b3;
+      &:hover {
+        color: $blue
+      }
+    }
+    .agreement-tip {
+      color: #b3b3b3;
+      margin-top: 5px
+    }
+    .agreement {
+      color: $blue
+    }
+    //发送图片验证码
+    .login-form-item-yzm {
+      height: 40px;
+      img {
+        width: 100%
+      }
+    }
+    //发送手机验证码
+    .login-form-item-message {
+      .btn-send-msg {
+        display: inline-block;
+        width: 100%;
+        height: 100%;
+        border-radius: 5px;
+        border: 1px solid $blue;
+        font-size: 16px;
+        color: $blue;
+        text-align: center;
+        cursor: pointer;
+      }
+      .btn-send-msg-count {
+        border: 1px solid $grey;
+        color: grey;
+        cursor: default;
+      }
+    }
+  }
+  .login-form-reg {
+    margin-top: 40px;
+    input:focus {
+      border: 1px solid #3ad4b0;
+    }
+  }
+}
+
+//注册页面
+.agreement-copy-right {
+  .c {
+    font-size: 16px;
+    line-height: 30px
+  }
+
+  p {
+    font-size: 14px;
+    line-height: 26px
+  }
+}
+
+//服务商客户入住logo
+.topic-rent-card {
+  box-sizing: border-box;
+  border: 1px solid $grey;
+  border-radius: 4px;
+  text-align: center;
+  .topic-rent-pic {
+    cursor: pointer;
+    position: relative;
+    text-align: center;
+    width: 258px;
+    height: 172px;
+    img {
+      width: 50%;
+      height: 50%;
+      display: inline-block;
+      position: absolute;
+      top: 50%;
+    }
+  }
+  .topic-rent-info {
+    line-height: 24px;
+    box-sizing: border-box;
+    margin: 12px;
+    .info-title {
+      font-size: 18px;
+      line-height: 30px;
+      color: $color1b;
+      cursor: pointer;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      white-space: nowrap;
+    }
+  }
+}
+
+//nav
+.app-header-wp {
+  position: fixed;
+  top: 0;
+  background: #fff;
+  z-index: 10;
+  left: 50%;
+  margin-left: -50%;
+  width: 100%;
+  box-shadow: 2px 2px 3px #ccc;
+  padding: 0 30px;
+  font-size: 16px;
+  font-family: 'Microsoft YaHei';
+  line-height: 56px;
+  height: 56px;
+  .common-topbar-wp {
+    .common-topbar-logo {
+      float: left;
+      img {
+        vertical-align: middle;
+      }
+      span {
+        margin: 0 193px 0 8px;
+        color: #3ad4b0;
+        font-weight: bold;
+      }
+    }
+    .common-topbar-ctrl-wp {
+      float: right;
+      line-height: 56px;
+      .comlogin {
+        margin-top: 18px;
+        a:hover {
+          color: #3ad4b0;
+        }
+      }
+      .common-topbar-ctrl {
+        margin-top: 20px;
+        font-size: 16px;
+        height: 16px;
+        line-height: 16px;
+        span {
+          display: inline-block
+        }
+        .user-login {
+          margin-right: 10px;
+          cursor: pointer
+        }
+        .user-name {
+          cursor: pointer
+        }
+        .common-topbar-ctrl-user- {
+          width: 40px;
+          height: 40px;
+          vertical-align: middle;
+        }
+      }
+    }
+    .common-topbar-nav {
+      float: left;
+      font-size: 16px;
+      .common-topbar-nav-list {
+        li.common-topbar-nav-item {
+          margin-left: 48px;
+          text-align: center;
+          display: inline-block;
+          float: left;
+          position: relative;
+          & > a {
+            display: inline-block;
+            &:hover {
+              color: $blue;
+            }
+          }
+          & > a.router-link-active {
+            color: $blue;
+          }
+          .topbar-dropdown-wp {
+            position: absolute;
+            z-index: 9999;
+            width: 500px;
+            display: none;
+            background: $dropdownBg;
+            clear: both;
+            padding: 18px 20px;
+            .item {
+              color: $dropdownColor;
+              clear: both;
+              .title {
+                float: left;
+                height: 34px;
+                line-height: 34px;
+                font-size: 14px;
+                font-weight: bold;
+                width: 80px;
+              }
+              .ctnamebox {
+                a {
+                  color: $dropdownColor;
+                  display: inline-block;
+                  height: 14px;
+                  line-height: 14px;
+                  margin-right: 22px;
+                  margin-top: 10px;
+                  margin-bottom: 22px;
+                  font-size: 13px;
+                }
+                a:last-child {
+                  border-right: 0
+                }
+              }
+            }
+          }
+          &:hover {
+            .topbar-dropdown-wp {
+              display: block;
+            }
+          }
+        }
+      }
+    }
+    .common-topbar-ctrl-wp {
+      .el-dropdown-menu__item:hover {
+
+      }
+    }
+  }
+}
+
+//页脚
+.app-footer-wp {
+  text-align: center;
+  color: #7A7A7A;
+  background: #3B3B3B;
+  line-height: 32px;
+  font-size: 14px;
+  width: 100%;
+  box-sizing: border-box;
+  clear: both;
+  padding: 15px 0;
+  .footer-contact {
+    margin-top: 86px;
+    text-align: left;
+    vertical-align: bottom;
+    font-weight: 500;
+    img {
+      margin-top: 5px;
+      vertical-align: middle;
+    }
+    .footer-contact-phone {
+      font-weight: 700;
+    }
+  }
+  .footer-download {
+    margin-top: 56px;
+    li {
+      float: left;
+      margin-right: 30px;
+      text-align: center
+    }
+    li:last-child {
+      margin-right: 0
+    }
+    img {
+      max-height: 86px;
+    }
+    p {
+      color: #ffffff;
+      height: 20px;
+      line-height: 20px
+    }
+  }
+}
+
+//首页 服务商
+.fac-wrap {
+  margin: 0 10px;
+  text-align: center;
+  box-shadow: 0 0 12px #131816;
+  transition: .2s linear;
+  .image {
+    display: inline-block;
+    width: 270px;
+    height: 372px;
+    opacity: .8;
+  }
+  &:hover {
+    margin: 0 5px;
+    height: 397px;
+    width: 280px;
+    .image {
+      height: 299px;
+      width: 280px;
+    }
+    .rate {
+      display: block;
+      height: 108px;
+      padding: 14px 14px 30px;
+      span {
+        padding: 24px 0;
+      }
+      .rateScore {
+        height: 30px;
+      }
+    }
+  }
+}
+
+//首页 客户
+.cust-wrap {
+  width: 280px;
+  height: 250px;
+  margin: 10px 20px 10px 0;
+  img {
+    display: block;
+    height: 190px;
+    width: 100%;
+  }
+  .rate {
+    padding-top: 20px;
+    font-size: 14px;
+    text-align: center;
+  }
+}
+
+// 首页更多
+.more {
+  text-align: center;
+  span {
+    display: inline-block;
+    margin-top: 60px;
+    width: 146px;
+    height: 40px;
+    border-radius: 4px;
+    border: 1px solid #24cca3;
+    text-align: center;
+    line-height: 40px;
+    cursor: default;
+    &:hover {
+      background: #ececec;
+    }
+  }
+}
+
+//服务商页
+.fac-index-wrap {
+  width: 285px;
+  height: 300px;
+  margin-right: 10px;
+  margin-bottom: 20px;
+  background: #fff;
+  border-radius: 6px;
+  text-align: center;
+  img {
+    display: inline-block;
+    height: 190px;
+    width: 100%;
+  }
+  .rate {
+    > span {
+      display: inline-block;
+      margin: 20px 16px;
+    }
+  }
+}
