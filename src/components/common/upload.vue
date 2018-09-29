@@ -8,15 +8,23 @@
         accept="image/jpeg,image/png"
         :on-preview="handlePictureCardPreview"
         :on-exceed="handleExceed"
-        :on-change="handleChange"
+        :on-success="handleChange"
         :on-remove="handleRemove"
         :action="action"
         :data="postData">
         <i class="el-icon-plus"></i>
       </el-upload>
     </el-form>
-    <el-dialog :visible.sync="bigImgDialog">
-      <img width="100%" :src="url" alt="">
+    <el-dialog
+      :visible.sync="bigImgDialog"
+      width="100%"
+      center>
+      <div class="bigproimg">
+        <img :src="url" alt="" class="bigImg">
+      </div>
+    </el-dialog>
+    <el-dialog :visible.sync="dialogVisible">
+      <img width="100%" :src="dialogImageUrl" alt="">
     </el-dialog>
   </div>
 </template>
@@ -48,7 +56,8 @@
     methods: {
       handleChange(file, fileList) {
         this.fileList = fileList
-
+        debugger
+        console.log(this.domain+fileList.response.hash)
       },
       handleRemove(file, fileList) {
         this.fileList = fileList

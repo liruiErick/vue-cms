@@ -250,6 +250,12 @@ export default {
   updateShop(params){
     return reqJsonData('manage/shopping/updateRestaurant', params)
   },
+  addRestaurant(params) {
+    return reqJsonData('manage/shopping/addRestaurant', params)
+  },
+  delRestaurant(params) {
+    return reqJsonData('manage/shopping/delRestaurant', params, 'get')
+  },
   getCategoryList(params) {
     return reqJsonData('manage/shopping/getCategories', params, 'get')
   }

@@ -397,7 +397,6 @@ export default {
       });
     },
     addShop() {
-      debugger
       this.$store.dispatch("showShopListForm");
     },
   },

@@ -13,7 +13,7 @@
   export default {
     props: {
       data: Array,
-      options:Array
+      options: Array
     },
     data() {
       return {
@@ -22,11 +22,24 @@
     mounted() {
     },
     methods: {
-      handleChange(value){
-        this.$emit('data',value)
+      handleChange() {
+        console.log(this.data)
+//        this.$emit('data', this.getCascaderObj(this.data,this.options))
+      },
+      getCascaderObj(val, opt) {
+        return val.map(function (value, index, array) {
+          for (var itm of opt) {
+            if (itm.value == value) {
+              opt = itm.children;
+              return itm;
+            }
+          }
+          return null;
+        });
       }
     }
-  };
+  }
+  ;
 </script>
 
 <style>
