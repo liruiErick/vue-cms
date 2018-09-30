@@ -384,14 +384,13 @@
                   let data = res.data
                   for (let item in data) {
                     if (item === value) {//省
-                      if (index !== 2) {
+                      if (index < 2) {
                         that.temp.data += data[item] + '/'
                       } else {
                         that.temp.data += data[item]
-                        params.addressTotal = params.addressTotal.join('/')
-                        debugger
-                        params.category = params.category.join('/')
-                        params.image_path = that.dialogState.edit?that.image_path:that.formData.image_path;
+                        params.addressTotal = params.addressTotal.length>0?params.addressTotal.join('/'):params.addressTotal
+                        params.category = params.category.length>0?params.category.join('/'):params.category
+                        params.image_path = that.dialogState.edit?(that.image_path.length>0?that.image_path:params.image_path):that.formData.image_path;
                         params.addressTotals = that.temp.data
                         // 更新
                         if (that.dialogState.edit) {

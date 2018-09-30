@@ -44,10 +44,8 @@
       </el-table-column>
       <el-table-column :label="$t('main.dataTableOptions')" width="200">
         <template slot-scope="scope">
-          <el-button size="mini" type="primary" plain round @ @click="editShopInfo(scope.$index, dataList)"><i
-            class="fa fa-edit"></i></el-button>
-          <el-button size="mini" type="danger" plain round icon="el-icon-delete"
-                     @click="deleteShop(scope.$index, dataList)"></el-button>
+          <el-button size="mini" type="primary" plain round @ @click="editShopInfo(scope.$index, dataList)"><i class="fa fa-edit"></i></el-button>
+          <el-button size="mini" type="danger" plain round icon="el-icon-delete" @click="deleteShop(scope.$index, dataList)"></el-button>
         </template>
       </el-table-column>
     </el-table>

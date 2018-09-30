@@ -39,6 +39,7 @@
     computed: {
       ...mapGetters([
         'shopList',
+        'goodList',
         'category'
       ]),
       shopList() {

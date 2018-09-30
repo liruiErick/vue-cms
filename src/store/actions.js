@@ -158,6 +158,18 @@ export default {
       formData: params.formData
     })
   },
+  showGoodListForm: ({
+                       commit
+                     }, params = {
+    edit: false,
+    formData: {}
+  }) => {
+    commit(types.GOODLISTSTATE, {
+      show: true,
+      edit: params.edit,
+      formData: params.formData
+    })
+  },
   hideShopListForm: ({
                              commit
                            }) => {
