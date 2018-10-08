@@ -370,7 +370,6 @@
       },
       submitForm(formName) {
         let that = this;
-        debugger
         this.$refs[formName].validate(valid => {
           if (valid) {
             let params = that.dialogState.edit?that.dialogState.formData:that.formData;
@@ -385,11 +384,9 @@
                   for (let item in data) {
                     if (item === value) {//省
                       if (index < 2) {
-                        that.temp.data += data[item] + '/'
+                        that.temp.data += data[item] + '/';
                       } else {
-                        that.temp.data += data[item]
-                        params.addressTotal = params.addressTotal.length>0?params.addressTotal.join('/'):params.addressTotal
-                        params.category = params.category.length>0?params.category.join('/'):params.category
+                        that.temp.data += data[item];
                         params.image_path = that.dialogState.edit?(that.image_path.length>0?that.image_path:params.image_path):that.formData.image_path;
                         params.addressTotals = that.temp.data
                         // 更新
@@ -409,7 +406,6 @@
                           });
                         } else {
                           // 新增
-                          debugger
                           services.addRestaurant(params).then(result => {
                             if (result.data.status === 200) {
                               that.$store.dispatch("hideShopListForm");

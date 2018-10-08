@@ -258,6 +258,9 @@ export default {
   },
   getCategoryList(params) {
     return reqJsonData('manage/shopping/getCategories', params, 'get')
+  },
+  getGoods(params){
+    return reqJsonData('manage/goods/goods', params, 'get')
   }
 
 }

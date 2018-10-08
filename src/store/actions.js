@@ -31,6 +31,13 @@ export function renderTreeData(result) {
 }
 
 export default {
+  getGoodList({
+                    commit
+                  }, params = {}) {
+    services.getGoods(params).then((result) => {
+      commit(types.GOODLIST, result.data.data)
+    })
+  },
   getCategoryList({
                 commit
               }, params = {}) {
