@@ -10,10 +10,10 @@
               <span>{{ props.row.name }}</span>
             </el-form-item>
             <el-form-item label="餐馆名称">
-              <span>{{ props.row.restaurant_name }}</span>
+              <span>{{ props.row.shop.name }}</span>
             </el-form-item>
             <el-form-item label="食品 ID">
-              <span>{{ props.row.item_id }}</span>
+              <span>{{ props.row.shop.id }}</span>
             </el-form-item>
             <el-form-item label="餐馆 ID">
               <span>{{ props.row.restaurant_id }}</span>
@@ -22,13 +22,13 @@
               <span>{{ props.row.description }}</span>
             </el-form-item>
             <el-form-item label="餐馆地址">
-              <span>{{ props.row.restaurant_address }}</span>
+              <span>{{ props.row.shop.address }}</span>
             </el-form-item>
             <el-form-item label="食品评分">
               <span>{{ props.row.rating }}</span>
             </el-form-item>
             <el-form-item label="食品分类">
-              <span>{{ props.row.category_name }}</span>
+              <span>{{ props.row.shop.category }}</span>
             </el-form-item>
             <el-form-item label="月销量">
               <span>{{ props.row.month_sales }}</span>

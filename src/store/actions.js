@@ -35,6 +35,7 @@ export default {
                     commit
                   }, params = {}) {
     services.getGoods(params).then((result) => {
+      debugger
       commit(types.GOODLIST, result.data.data)
     })
   },
