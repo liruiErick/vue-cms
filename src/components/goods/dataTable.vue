@@ -27,9 +27,9 @@
             <el-form-item label="食品评分">
               <span>{{ props.row.rating }}</span>
             </el-form-item>
-            <el-form-item label="食品分类">
+            <!--<el-form-item label="食品分类">
               <span>{{ props.row.shop.category }}</span>
-            </el-form-item>
+            </el-form-item>-->
             <el-form-item label="月销量">
               <span>{{ props.row.month_sales }}</span>
             </el-form-item>
