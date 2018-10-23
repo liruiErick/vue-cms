@@ -21,10 +21,6 @@
         <el-dropdown trigger="hover">
           <span class="el-dropdown-link userinfo-inner"><img src="../upload/images/img20180906144044.jpeg"/> {{loginState.userInfo.userName}}</span>
           <el-dropdown-menu slot="dropdown">
-            <el-dropdown-item @click.native="sysMessage">{{$t('main.myMessage')}}
-              <el-badge v-show="loginState.noticeCounts > 0" class="mark" :value="loginState.noticeCounts"/>
-            </el-dropdown-item>
-            <el-dropdown-item @click.native="sysSettings">{{$t('main.settings')}}</el-dropdown-item>
             <el-dropdown-item divided @click.native="logout">{{$t('main.logOut')}}</el-dropdown-item>
           </el-dropdown-menu>
         </el-dropdown>
@@ -90,9 +86,6 @@
       switchzh(lan) {
         sessionStorage.setItem('locale',lan)
       },
-      onSubmit() {
-        console.log("submit!");
-      },
       handleOpen(key, keyPath) {
         console.log(key, keyPath);
       },
@@ -127,22 +120,11 @@
           .catch(() => {
           });
       },
-      sysMessage() {
-        this.$router.push("/systemNotify");
-      },
-      sysSettings() {
-        this.$router.push("/systemConfig");
-      },
       //折叠导航栏
       collapse: function () {
         this.collapsed = !this.collapsed;
       },
-      savePageInfo(route) {
-        if (route === "/addContent") {
-          let params = this.contentFormState.formData,
-            postState = this.contentFormState.edit ? "editContent" : "addContent";
-          localStorage.setItem(postState, JSON.stringify(params));
-        }
+      savePageInfo() {
         this.$router.push('/login')
       }
     },
@@ -170,7 +152,7 @@
         )
           .then(() => {
             this.loading = true;
-            this.savePageInfo(this.$route.path);
+            this.savePageInfo();
             sessionStorage.removeItem('routerPath')
             sessionStorage.removeItem('main')
             sessionStorage.removeItem('loginOut')
@@ -188,12 +170,11 @@
 <style scoped lang="scss">
   .container {
     position: absolute;
-    top: 0px;
-    bottom: 0px;
+    top: 0;
+    bottom: 0;
     width: 100%;
     .header {
       height: 60px;
-      line-height: 60px;
       line-height: 60px;
       background: #fff;
       color: #fff;
@@ -208,7 +189,7 @@
             width: 40px;
             height: 40px;
             border-radius: 20px;
-            margin: 10px 0px 10px 10px;
+            margin: 10px 0 10px 10px;
             float: right;
           }
         }
@@ -225,7 +206,7 @@
         img {
           width: 100%;
           float: left;
-          margin: 10px 10px 10px 0px;
+          margin: 10px 10px 10px 0;
         }
         .txt {
           color: #fff;
@@ -239,7 +220,7 @@
         width: 60px;
       }
       .tools {
-        padding: 0px 23px;
+        padding: 0 23px;
         width: 14px;
         height: 60px;
         line-height: 60px;
@@ -252,7 +233,7 @@
       background: #ffffff;
       position: absolute;
       top: 60px;
-      bottom: 0px;
+      bottom: 0;
       overflow: hidden;
       aside {
         .el-menu-vertical-demo:not(.el-menu--collapse) {
@@ -269,7 +250,7 @@
           }
           .submenu {
             position: absolute;
-            top: 0px;
+            top: 0;
             left: 60px;
             z-index: 99999;
             height: auto;

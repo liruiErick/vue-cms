@@ -30,6 +30,7 @@
 import siteFunc from '../../utils/siteFunc'
 import services from "../../store/services.js";
 import axios from 'axios'
+import md5 from 'js-md5';
 export default {
   name: 'userlogin',
   data() {
@@ -101,7 +102,7 @@ export default {
       var that = this
       this.$refs.loginForm.validate(valid => {
         if (valid) {
-          debugger
+          this.loginForm.password = md5(this.loginForm.password)
           axios.post('api/admin/doLogin', this.loginForm).then(function (resp) {
             if(resp.data.status === 200){
               services.getAllResource().then(function (res) {
