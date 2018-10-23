@@ -69,6 +69,7 @@ export default {
     state: false
   }) => {
     services.getUserSession().then((result) => {
+      debugger
       commit(types.ADMING_LOGINSTATE, result.data.data)
     })
   },
