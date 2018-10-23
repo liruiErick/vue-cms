@@ -100,176 +100,9 @@ const state = {
       err: {}
     }
   },
-  adminTemplate: {
-    formState: {},
-    templateList: {
-      pageInfo: {},
-      docs: []
-    }
-  },
-  myTemplates: {
-    formState: {
-      show: false,
-      edit: false,
-      formData: {}
-    },
-    templateList: {
-      pageInfo: {},
-      docs: []
-    },
-    templateItemForderList: {}
-  },
   tempShoplist: {
     pageInfo: {},
     docs: []
-  },
-  systemConfig: {
-    configs: {
-      siteName: '',
-      siteDomain: '',
-      siteDiscription: '',
-      siteKeywords: '',
-      siteEmailServer: '',
-      siteEmail: '',
-      siteEmailPwd: '',
-      mongoDBPath: '',
-      databackForderPath: '',
-      poseArticlScore: '',
-      postMessageScore: '',
-      shareArticlScore: ''
-    }
-  },
-  contentCategory: {
-    formState: {
-      type: 'root',
-      show: false,
-      edit: false,
-      formData: {
-        label: '',
-        enable: false,
-        defaultUrl: '',
-        parentId: '',
-        contentTemp: '',
-        parentObj: '',
-        sortId: 0,
-        comments: '',
-        type: '1'
-      }
-    },
-    categoryList: {
-      pageInfo: {},
-      docs: []
-    },
-    addContentCategory: {
-      state: '',
-      err: {}
-    }
-  },
-  content: {
-    formState: {
-      edit: false,
-      formData: {
-        title: '',
-        stitle: '',
-        type: '1',
-        categories: [],
-        sortPath: '',
-        tags: [],
-        keywords: '',
-        sImg: '/upload/images/defaultImg.jpg',
-        discription: '',
-        author: {},
-        uAuthor: '',
-        markDownComments: '',
-        state: true,
-        isTop: 0,
-        clickNum: 0,
-        comments: '',
-        commentNum: 0,
-        likeNum: 0,
-        likeUserIds: '',
-        from: '1',
-        postValue: 3,
-        translate: '',
-        twiterAuthor: ''
-
-      }
-    },
-    contentList: {
-      pageInfo: {},
-      docs: []
-    },
-    addContent: {
-      state: '',
-      err: {}
-    }
-  },
-  contentTag: {
-    formState: {
-      show: false,
-      edit: false,
-      formData: {
-        name: '',
-        alias: '',
-        comments: ''
-      }
-    },
-    tagList: {
-      pageInfo: {},
-      docs: []
-    },
-    addTag: {
-      state: '',
-      err: {}
-    }
-  },
-  contentMessage: {
-    formState: {
-      show: false,
-      edit: false,
-      formData: {
-        contentId: '',
-        content: '',
-        author: '',
-        replyId: '',
-        relationMsgId: ''
-      },
-      parentformData: {
-        contentId: '',
-        content: '',
-        author: '',
-        replyId: '',
-        relationMsgId: ''
-      }
-    },
-    messageList: {
-      pageInfo: {},
-      docs: []
-    },
-    addMessage: {
-      state: '',
-      err: {}
-    }
-  },
-  regUser: {
-    formState: {
-      show: false,
-      edit: false,
-      formData: {
-        name: '',
-        userName: '',
-        group: '',
-        email: '',
-        comments: '',
-        phoneNum: '',
-        enable: true,
-        integral: 0
-      }
-    },
-    userList: {
-      pageInfo: {},
-      docs: []
-    }
   },
   bakDataList: {
     pageInfo: {},
@@ -279,55 +112,12 @@ const state = {
     pageInfo: {},
     docs: []
   },
-  systemNotify: {
-    pageInfo: {},
-    docs: []
-  },
-  systemAnnounce: {
-    pageInfo: {},
-    docs: []
-  },
-  announceFormState: {
-    title: '',
-    content: ''
-  },
-  ads: {
-    list: {
-      pageInfo: {},
-      docs: []
-    },
-    infoFormState: {
-      edit: false,
-      formData: {
-        name: '',
-        type: '1',
-        height: '',
-        comments: '',
-        items: [],
-        state: true,
-        carousel: true
-      }
-    },
-    itemFormState: {
-      show: false,
-      edit: false,
-      formData: {
-        title: '',
-        link: '',
-        width: '',
-        height: '',
-        alt: '',
-        sImg: ''
-      }
-    }
-  },
   basicInfo: {
     adminUserCount: 0,
     regUserCount: 0,
     contentCount: 0,
     messageCount: 0
   },
-  adminRes: [],
   shop: {
     formState: {
       show: false,
@@ -372,9 +162,6 @@ const mutations = {
   },
   [types.GOODLIST](state, goodList) {
     state.good.goodList = goodList;
-  },
-  [types.ADMINTEMPLATE_RES](state, params) {
-    state.adminRes = params;
   },
   [types.INCREMENT](state) {
     state.count++
@@ -481,172 +268,15 @@ const mutations = {
   [types.ADMINRESOURCE_LIST](state, resourceList) {
     state.adminResource.resourceList = resourceList
   },
-  [types.MYTEMPLATE_LIST](state, templateList) {
-    state.myTemplates.templateList = templateList
-  },
-  [types.TEMPLATECONFIG_FORMSTATE](state, formState) {
-    state.myTemplates.formState.show = formState.show;
-    state.myTemplates.formState.edit = formState.edit;
-    state.myTemplates.formState.formData = Object.assign({
-      name: '',
-      alias: '',
-      comments: ''
-    }, formState.formData);
-  },
-  [types.TEMPLATEITEMFORDER_LIST](state, forderList) {
-    state.myTemplates.templateItemForderList = forderList
-  },
-  [types.DORACMSTEMPLATE_LIST](state, templist) {
-    state.tempShoplist = templist
-  },
-  [types.SYSTEMCONFIG_CONFIGLIST](state, config) {
-    state.systemConfig.configs = Object.assign({
-      siteName: '',
-      siteDomain: '',
-      siteDiscription: '',
-      siteKeywords: '',
-      siteEmailServer: '',
-      siteEmail: '',
-      siteEmailPwd: '',
-      mongoDBPath: '',
-      databackForderPath: '',
-      poseArticlScore: '',
-      postMessageScore: '',
-      shareArticlScore: ''
-    }, config)
-  },
-  [types.CONTENTCATEGORYS_FORMSTATE](state, formState) {
-    state.contentCategory.formState.show = formState.show;
-    state.contentCategory.formState.edit = formState.edit;
-    state.contentCategory.formState.type = formState.type;
-    state.contentCategory.formState.formData = Object.assign({
-      name: '',
-      enable: false,
-      defaultUrl: '',
-      parentId: '',
-      parentObj: {},
-      contentTemp: '',
-      sortId: 0,
-      comments: '',
-      type: '1'
-    }, formState.formData);
-
-  },
-  [types.CONTENTCATEGORYS_LIST](state, categoryList) {
-    state.contentCategory.categoryList = categoryList
-  },
-  [types.CONTENT_FORMSTATE](state, formState) {
-    state.content.formState.edit = formState.edit;
-    state.content.formState.formData = Object.assign({
-      title: '',
-      stitle: '',
-      type: '1',
-      categories: [],
-      sortPath: '',
-      tags: [],
-      keywords: '',
-      sImg: '/upload/images/defaultImg.jpg',
-      discription: '',
-      author: {},
-      uAuthor: '',
-      markDownComments: '',
-      state: true,
-      isTop: 0,
-      clickNum: 0,
-      comments: '',
-      commentNum: 0,
-      likeNum: 0,
-      likeUserIds: '',
-      from: '1',
-      postValue: 3,
-      translate: '',
-      twiterAuthor: ''
-    }, formState.formData);
-
-  },
-  [types.CONTENT_LIST](state, contentList) {
-    state.content.contentList = contentList
-  },
-  [types.CONTENT_ONE](state, content) {
-    state.content.content = content
-  },
-  [types.CONTENTTAG_FORMSTATE](state, formState) {
-    state.contentTag.formState.show = formState.show;
-    state.contentTag.formState.edit = formState.edit;
-    state.contentTag.formState.type = formState.type;
-    state.contentTag.formState.formData = Object.assign({
-      name: '',
-      alias: '',
-      comments: ''
-    }, formState.formData);
-
-  },
-  [types.CONTENTTAG_LIST](state, tagList) {
-    state.contentTag.tagList = tagList
-  },
-  [types.CONTENTMESSAGE_FORMSTATE](state, formState) {
-    state.contentMessage.formState.show = formState.show;
-    state.contentMessage.formState.edit = formState.edit;
-    state.contentMessage.formState.type = formState.type;
-    state.contentMessage.formState.formData = Object.assign({
-      contentId: '',
-      content: '',
-      replyId: '',
-      author: '',
-      relationMsgId: ''
-    }, formState.formData);
-    state.contentMessage.formState.parentformData = Object.assign({
-      contentId: '',
-      content: '',
-      replyId: '',
-      author: '',
-      relationMsgId: ''
-    }, formState.parentformData);
-  },
-  [types.CONTENTMESSAGE_LIST](state, messageList) {
-    state.contentMessage.messageList = messageList
-  },
-  [types.REGUSERFORMSTATE](state, formState) {
-    state.regUser.formState.show = formState.show;
-    state.regUser.formState.edit = formState.edit;
-
-    state.regUser.formState.formData = Object.assign({
-      name: '',
-      userName: '',
-      group: '',
-      email: '',
-      comments: '',
-      phoneNum: '',
-      enable: true
-    }, formState.formData);
-
-  },
-  [types.REGUSERLIST](state, userlist) {
-    state.regUser.userList = userlist
-  },
   [types.BAKUPDATA_LIST](state, list) {
     state.bakDataList = list
   },
   [types.SYSTEMOPTIONLOGS_LIST](state, list) {
     state.systemOptionLogs = list
   },
-  [types.SYSTEMNOTIFY_LIST](state, list) {
-    state.systemNotify = list
-  },
-  [types.SYSTEMANNOUNCE_LIST](state, list) {
-    state.systemAnnounce = list
-  },
-  [types.SYSTEMANNOUNCE_FORMSTATE](state, formState) {
-    state.announceFormState = Object.assign({
-      title: '',
-      content: ''
-    }, formState.formData);
-
-  },
   [types.MAIN_SITEBASIC_INFO](state, list) {
     state.basicInfo = list
   }
-
 }
 
 export default {

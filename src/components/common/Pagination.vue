@@ -26,37 +26,15 @@ export default {
       });
     },
     handleCurrentChange(val) {
-      console.log(`当前页: ${val}`);
       let searchkey = this.pageInfo ? this.pageInfo.searchkey : "";
       let state = this.pageInfo ? this.pageInfo.state : "";
-      if (this.pageType === "content") {
-        this.$store.dispatch("getContentList", {
-          current: val,
-          searchkey,
-          state
-        });
-      } else if (this.pageType === "adminUser") {
+      if (this.pageType === "adminUser") {
         this.$store.dispatch("getAdminUserList", {
           current: val,
           searchkey
         });
       } else if (this.pageType === "adminGroup") {
         this.$store.dispatch("getAdminGroupList", {
-          current: val,
-          searchkey
-        });
-      } else if (this.pageType === "contentMessage") {
-        this.$store.dispatch("getContentMessageList", {
-          current: val,
-          searchkey
-        });
-      } else if (this.pageType === "contentTag") {
-        this.$store.dispatch("getContentTagList", {
-          current: val,
-          searchkey
-        });
-      } else if (this.pageType === "regUser") {
-        this.$store.dispatch("getRegUserList", {
           current: val,
           searchkey
         });
@@ -70,17 +48,7 @@ export default {
           current: val,
           searchkey
         });
-      } else if (this.pageType === "systemNotify") {
-        this.$store.dispatch("getSystemNotifyList", {
-          current: val,
-          searchkey
-        });
-      } else if (this.pageType === "systemAnnounce") {
-        this.$store.dispatch("getSystemAnnounceList", {
-          current: val,
-          searchkey
-        });
-      }else if (this.pageType === "shopList") {
+      } else if (this.pageType === "shopList") {
         this.$store.dispatch("getShopList", {
           current: val,
           searchkey

@@ -64,16 +64,8 @@
                                   <i class="fa fa-fw fa-user"></i> {{$t('main.addAdminUser')}}</el-button>
                               </li>
                               <li>
-                                <el-button size="small" type="success" plain round @click="getToPage('addContent')">
-                                  <i class="fa fa-fw fa-file-text-o"></i> {{$t('main.addContents')}}</el-button>
-                              </li>
-                              <li>
                                 <el-button size="small" type="info" plain round @click="getToPage('adminResource')">
                                   <i class="fa fa-fw fa-th-list"></i> {{$t('main.sourceManage')}}</el-button>
-                              </li>
-                              <li>
-                                <el-button size="small" type="warning" plain round @click="getToPage('systemConfig')">
-                                  <i class="fa fa-fw fa-cog"></i> {{$t('main.systemConfigs')}}</el-button>
                               </li>
                               <li>
                                 <el-button size="small" type="danger" plain round @click="getToPage('backUpData')">

@@ -10,27 +10,8 @@
             <div v-else-if="type === 'adminResource'">
                 <el-button size="small" type="primary" plain @click="addResource" round><i class="fa fa-fw fa-plus" aria-hidden="true"></i></el-button>
             </div>
-            <div v-else-if="type === 'content'">
-                <el-button size="small" type="primary" plain @click="addContent('content')" round><i class="fa fa-fw fa-plus" aria-hidden="true"></i></el-button>
-                <el-button size="small" type="danger" plain round @click="branchDelete('content')"><i class="fa fa-fw fa-trash-o"></i></el-button>
-            </div>
-            <div v-else-if="type === 'contentCategory'">
-                <el-button size="small" type="primary" plain @click="addTopCates" round><i class="fa fa-fw fa-plus" aria-hidden="true"></i></el-button>
-            </div>
-            <div v-else-if="type === 'contentMessage'">
-                <el-button size="small" type="danger" plain round @click="branchDelete('msg')"><i class="fa fa-fw fa-trash-o"></i></el-button>
-            </div>
-            <div v-else-if="type === 'contentTag'">
-                <el-button size="small" type="primary" plain round @click="addTag"><i class="fa fa-fw fa-plus" aria-hidden="true"></i></el-button>
-            </div>
-            <div v-else-if="type === 'regUser'">
-                <el-button size="small" type="danger" plain round @click="branchDelete('user')"><i class="fa fa-fw fa-trash-o"></i></el-button>
-            </div>
             <div v-else-if="type === 'backUpData'">
                 <el-button size="small" type="primary" plain round @click="bakUpData" :loading="loadingState"><i class="fa fa-fw fa-cloud-download" aria-hidden="true"></i></el-button>
-            </div>
-            <div v-else-if="type === 'adminTemplate'">
-                <el-button size="small" type="primary" plain round @click="saveTemplate"><i class="fa fa-fw fa-save" aria-hidden="true"></i></el-button>
             </div>
             <div v-else-if="type === 'systemOptionLogs'">
                 <el-button size="small" type="danger" plain round @click="branchDelete('systemlogs')"><i class="fa fa-fw fa-trash-o"></i></el-button>
@@ -38,54 +19,11 @@
                     <el-button size="small" type="warning" plain round @click="clearSystemOptionLogs"><i class="fa fa-fw fa-window-restore"></i></el-button>
                 </el-tooltip>
             </div>
-            <div v-else-if="type === 'systemNotify'">
-                <el-button size="small" type="primary" plain round @click="setHasRead()"><i class="fa fa-fw fa-eye" aria-hidden="true"></i></el-button>
-                <el-button size="small" type="danger" plain round @click="branchDelete('systemnotify')"><i class="fa fa-fw fa-trash-o"></i></el-button>
-            </div>
-            <div v-else-if="type === 'systemAnnounce'">
-                <el-button type="primary" size="small" plain round @click="addSysAnnounce"><i class="fa fa-fw fa-plus"></i></el-button>
-            </div>
             <div v-if="type === 'shopList'">
               <el-button size="small" type="primary" plain @click="addShop" round><i class="fa fa-fw fa-plus" aria-hidden="true"></i></el-button>
             </div>
         </div>
         <div class="el-col-18">
-            <div class="dr-toolbar-right" v-if="type === 'content'">
-                <el-input class="dr-searchInput" size="small" :placeholder="$t('topBar.keywords')" v-model="pageInfo.searchkey" suffix-icon="el-icon-search" @keyup.enter.native="searchResult" :on-icon-click="searchResult">
-                </el-input>
-                <div class="dr-select-box">
-                  <el-select size="small" @change="changePostOptions" v-model="authPost" placeholder="请选择">
-                    <el-option
-                      v-for="item in authPostOptions"
-                      :key="item.value"
-                      :label="item.label"
-                      :value="item.value">
-                    </el-option>
-                  </el-select>
-                </div>
-            </div>
-            <div class="dr-toolbar-right" v-else-if="type === 'contentTag'">
-                <el-input class="dr-searchInput" size="small" :placeholder="$t('topBar.tagName')" v-model="pageInfo.searchkey" suffix-icon="el-icon-search" @keyup.enter.native="searchResult" :on-icon-click="searchResult">
-                </el-input>
-            </div>
-            <div class="dr-toolbar-right" v-else-if="type === 'contentMessage'">
-                <el-input class="dr-searchInput" size="small" :placeholder="$t('topBar.messageContent')" v-model="pageInfo.searchkey" suffix-icon="el-icon-search" @keyup.enter.native="searchResult" :on-icon-click="searchResult">
-                </el-input>
-            </div>
-            <div class="dr-toolbar-right" v-else-if="type === 'regUser'">
-                <el-input class="dr-searchInput" size="small" :placeholder="$t('topBar.regUser')" v-model="pageInfo.searchkey" suffix-icon="el-icon-search" @keyup.enter.native="searchResult" :on-icon-click="searchResult">
-                </el-input>
-            </div>
-            <div class="dr-toolbar-right" v-else-if="type === 'regUser'">
-                <el-input class="dr-searchInput" size="small" :placeholder="$t('topBar.regUser')" v-model="pageInfo.searchkey" suffix-icon="el-icon-search" @keyup.enter.native="searchResult" :on-icon-click="searchResult">
-                </el-input>
-            </div>
-            <div class="dr-toolbar-right" style="text-align:left" v-else-if="type === 'adminTemplate'">
-                <el-tag :v-if="path" type="info" size="small">{{path}}</el-tag>
-            </div>
-            <div class="dr-toolbar-right" v-else>
-              &nbsp;
-            </div>
         </div>
     </div>
 </template>
@@ -94,87 +32,15 @@ import services from "../../store/services.js";
 import _ from "lodash";
 export default {
   props: {
-    pageInfo: Object,
     type: String,
-    ids: Array,
-    code: String,
-    path: String
+    ids: Array
   },
   data() {
     return {
-      systemModelTypes: [
-        {
-          value: "all",
-          label: this.$t("topBar.systemModelTypes_all")
-        },
-        {
-          value: "h5-exception",
-          label: this.$t("topBar.systemModelTypes_h5")
-        },
-        {
-          value: "node-exception",
-          label: this.$t("topBar.systemModelTypes_node")
-        },
-        {
-          value: "login",
-          label: this.$t("topBar.systemModelTypes_login")
-        }
-      ],
-      targetSysLogType: "all",
-      loadingState: false,
-      formState: {
-        show: false
-      },
-      searchkey: "",
-      authPost: "0",
-      authPostOptions: [
-        {
-          value: "0",
-          label: "全部"
-        },
-        {
-          value: "1",
-          label: "待审核"
-        }
-      ]
+      loadingState: false
     };
   },
   methods: {
-    changePostOptions(value) {
-      if (value == "0") {
-        this.$store.dispatch("getContentList");
-      } else if (value == "1") {
-        this.$store.dispatch("getContentList", { state: false });
-      }
-    },
-    selectSysLogType(type) {
-      this.targetSysLogType = type;
-      if (type == "all") {
-        this.$store.dispatch("getSystemLogsList");
-      } else {
-        this.$store.dispatch("getSystemLogsList", { type });
-      }
-    },
-    searchResult(ev) {
-      let searchkey = this.pageInfo ? this.pageInfo.searchkey : "";
-      if (this.type == "content") {
-        this.$store.dispatch("getContentList", {
-          searchkey
-        });
-      } else if (this.type == "contentTag") {
-        this.$store.dispatch("getContentTagList", {
-          searchkey
-        });
-      } else if (this.type == "contentMessage") {
-        this.$store.dispatch("getContentMessageList", {
-          searchkey
-        });
-      } else if (this.type == "regUser") {
-        this.$store.dispatch("getRegUserList", {
-          searchkey
-        });
-      }
-    },
     addUser() {
       this.$store.dispatch("showAdminUserForm");
     },
@@ -183,22 +49,6 @@ export default {
     },
     addResource() {
       this.$store.dispatch("showAdminResourceForm", {
-        type: "root",
-        formData: {
-          parentId: "0"
-        }
-      });
-    },
-    addContent() {
-      this.$store.dispatch("showContentForm");
-      this.$router.push("/addContent");
-    },
-    addSysAnnounce() {
-      this.$store.dispatch("showContentForm");
-      this.$router.push("/addSysAnnounce");
-    },
-    addTopCates() {
-      this.$store.dispatch("showContentCategoryForm", {
         type: "root",
         formData: {
           parentId: "0"
@@ -268,40 +118,16 @@ export default {
       )
         .then(() => {
           let ids = _this.ids.join();
-          if (target === "msg") {
-            return services.deleteContentMessage({
-              ids
-            });
-          } else if (target === "user") {
-            return services.deleteRegUser({
-              ids
-            });
-          } else if (target === "systemlogs") {
+          if (target === "systemlogs") {
             return services.deleteSystemOptionLogs({
-              ids
-            });
-          } else if (target === "systemnotify") {
-            return services.deleteSystemNotify({
-              ids
-            });
-          } else if (target === "content") {
-            return services.deleteContent({
               ids
             });
           }
         })
         .then(result => {
           if (result.data.status === 200) {
-            if (target === "msg") {
-              this.$store.dispatch("getContentMessageList");
-            } else if (target === "user") {
-              this.$store.dispatch("getRegUserList");
-            } else if (target === "systemlogs") {
+           if (target === "systemlogs") {
               this.$store.dispatch("getSystemLogsList");
-            } else if (target === "systemnotify") {
-              this.$store.dispatch("getSystemNotifyList");
-            } else if (target === "content") {
-              this.$store.dispatch("getContentList");
             }
             this.$message({
               message: `${this.$t("main.scr_modal_del_succes_info")}`,
@@ -317,12 +143,6 @@ export default {
             message: this.$t("main.scr_modal_del_error_info")
           });
         });
-    },
-    addTag() {
-      this.$store.dispatch("showContentTagForm");
-    },
-    delUser() {
-      // this.$store.dispatch('showAdminUserForm')
     },
     bakUpData() {
       this.$confirm(
@@ -357,48 +177,9 @@ export default {
           });
         });
     },
-    saveTemplate() {
-      let params = {
-        code: this.code,
-        path: this.path
-      };
-      services.updateTemplateFileText(params).then(result => {
-        if (result.data.status == 200) {
-          this.$message({
-            message: this.$t("main.updateSuccess"),
-            type: "success"
-          });
-        } else {
-          this.$message.error(result.data.message);
-        }
-      });
-    },
-    setHasRead() {
-      if (_.isEmpty(this.ids)) {
-        this.$message({
-          type: "info",
-          message: this.$t("validate.selectNull", {
-            label: this.$t("main.target_Item")
-          })
-        });
-        return false;
-      }
-      let ids = this.ids.join();
-      services.setNoticeRead({ ids }).then(result => {
-        if (result.data.status === 200) {
-          this.$store.dispatch("getSystemNotifyList");
-          let oldNoticeCounts = this.$store.getters.loginState.noticeCounts;
-          this.$store.dispatch("loginState", {
-            noticeCounts: oldNoticeCounts - this.ids.length
-          });
-        } else {
-          this.$message.error(result.data.message);
-        }
-      });
-    },
     addShop() {
       this.$store.dispatch("showShopListForm");
-    },
+    }
   },
   components: {}
 };
