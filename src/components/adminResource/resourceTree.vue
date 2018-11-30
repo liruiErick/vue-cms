@@ -1,10 +1,8 @@
 <template>
-<el-tree :data="treeData" :props="defaultProps" node-key="id" default-expand-all :expand-on-click-node="false" :render-content="renderContent">
-  </el-tree>
+  <el-tree :data="treeData" :props="defaultProps" node-key="id" default-expand-all :expand-on-click-node="false" :render-content="renderContent"></el-tree>
 </template>
 
 <script>
-let id = 1000;
 import services from "../../store/services.js";
 
 export default {
@@ -73,8 +71,7 @@ export default {
     },
 
     renderContent(h, { node, data, store }) {
-      return (
-        <span style="flex: 1; display: flex; align-items: center; justify-content: space-between; font-size: 14px; padding-right: 8px;">
+      return (<span style="flex: 1; display: flex; align-items: center; justify-content: space-between; font-size: 14px; padding-right: 8px;">
           <span>
             <span>{node.label}</span>
           </span>
@@ -89,8 +86,7 @@ export default {
               <i class="fa fa-trash-o" />
             </el-button>
           </span>
-        </span>
-      );
+        </span>);
     }
   }
 };

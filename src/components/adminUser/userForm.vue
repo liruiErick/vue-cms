@@ -141,7 +141,6 @@ export default {
       this.$refs[formName].validate(valid => {
         if (valid) {
           let params = Object.assign({}, this.dialogState.formData);
-          params.password = params.password;
           // 更新
           if (this.dialogState.edit) {
             services.updateAdminUser(params).then(result => {

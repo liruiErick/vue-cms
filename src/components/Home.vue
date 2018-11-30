@@ -2,8 +2,7 @@
   <el-row class="container" v-loading.body="loading">
     <el-col :span="24" class="header">
       <el-col :span="10" class="logo" :class="collapsed?'logo-collapse-width':'logo-width'">
-        <router-link v-show="!collapsed" :to="{path: '/main'}"><img src="../assets/images/doracms-logo.png"
-                                                                    alt="DoraCMS内容管理系统"/></router-link>
+        <router-link v-show="!collapsed" :to="{path: '/main'}" class="to-main"></router-link>
       </el-col>
       <el-col :span="8">
         <div class="tools" @click.prevent="collapse">
@@ -33,7 +32,7 @@
     <el-col :span="24" class="main">
       <aside>
         <!--导航菜单-->
-        <el-menu unique-opened :default-active="$route.path" class="el-menu-vertical-demo" @open="handleOpen"
+        <el-menu :default-active="$route.path" class="el-menu-vertical-demo" @open="handleOpen"
                  @close="handleClose" :collapse="collapsed">
           <template v-for="(item,index) in $router.options.routes" v-if="!item.hidden">
             <el-submenu :index="index+''" :key="index">
@@ -88,22 +87,20 @@
     },
     methods: {
       switchzh(lan) {
-        sessionStorage.setItem('locale',lan)
+        sessionStorage.setItem('locale', lan)
       },
       onSubmit() {
         console.log("submit!");
       },
       handleOpen(key, keyPath) {
-        console.log(key, keyPath);
       },
       handleClose(key, keyPath) {
-        console.log(key, keyPath);
       },
       handleselect: function (a, b) {
       },
       //退出登录
       logout: function () {
-        var _this = this;
+        let _this = this;
         this.$confirm(
           this.$t("main.confirm_logout"),
           this.$t("main.confirm_logout"),
@@ -148,6 +145,9 @@
     },
     mounted() {
     },
+    created() {
+      console.log(this.$router.options.routes)
+    },
     computed: {
       ...mapGetters(["loginState"]),
       contentFormState() {
@@ -156,30 +156,30 @@
     },
     watch: {
       loginState() {
-      if (!this.$store.getters.loginState.state) {
-        this.$confirm(
-          "您的登录已超时！",
-          "提示",
-          {
-            showCancelButton: false,
-            closeOnClickModal: false,
-            closeOnPressEscape: false,
-            confirmButtonText: "重新登录",
-            type: "warning"
-          }
-        )
-          .then(() => {
-            this.loading = true;
-            this.savePageInfo(this.$route.path);
-            sessionStorage.removeItem('routerPath')
-            sessionStorage.removeItem('main')
-            sessionStorage.removeItem('loginOut')
-          })
-          .catch(() => {
-            this.loading = true;
-            window.location = "/main";
-          });
-      }
+        if (!this.$store.getters.loginState.state) {
+          this.$confirm(
+            "您的登录已超时！",
+            "提示",
+            {
+              showCancelButton: false,
+              closeOnClickModal: false,
+              closeOnPressEscape: false,
+              confirmButtonText: "重新登录",
+              type: "warning"
+            }
+          )
+            .then(() => {
+              this.loading = true;
+              this.savePageInfo(this.$route.path);
+              sessionStorage.removeItem('routerPath')
+              sessionStorage.removeItem('main')
+              sessionStorage.removeItem('loginOut')
+            })
+            .catch(() => {
+              this.loading = true;
+              window.location = "/main";
+            });
+        }
       }
     }
   };
@@ -188,12 +188,11 @@
 <style scoped lang="scss">
   .container {
     position: absolute;
-    top: 0px;
-    bottom: 0px;
+    top: 0;
+    bottom: 0;
     width: 100%;
     .header {
       height: 60px;
-      line-height: 60px;
       line-height: 60px;
       background: #fff;
       color: #fff;
@@ -208,7 +207,7 @@
             width: 40px;
             height: 40px;
             border-radius: 20px;
-            margin: 10px 0px 10px 10px;
+            margin: 10px 0 10px 10px;
             float: right;
           }
         }
@@ -222,10 +221,15 @@
         border-color: #ffffff;
         border-right-width: 1px;
         border-right-style: solid;
-        img {
+        position: relative;
+        a {
           width: 100%;
           float: left;
-          margin: 10px 10px 10px 0px;
+          position: absolute;
+          left: 0;
+          top: 0;
+          right: 0;
+          bottom: 0;
         }
         .txt {
           color: #fff;
@@ -234,12 +238,16 @@
       .logo-width {
         width: 230px;
         text-align: center;
+        background-size: cover;
+        background-image: url("../assets/images/doracms-logo.png");
       }
       .logo-collapse-width {
         width: 60px;
+        background-size: cover;
+        background-image: url("../assets/images/logo.jpg");
       }
       .tools {
-        padding: 0px 23px;
+        padding: 0 23px;
         width: 14px;
         height: 60px;
         line-height: 60px;
@@ -252,7 +260,7 @@
       background: #ffffff;
       position: absolute;
       top: 60px;
-      bottom: 0px;
+      bottom: 0;
       overflow: hidden;
       aside {
         .el-menu-vertical-demo:not(.el-menu--collapse) {
@@ -269,7 +277,7 @@
           }
           .submenu {
             position: absolute;
-            top: 0px;
+            top: 0;
             left: 60px;
             z-index: 99999;
             height: auto;

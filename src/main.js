@@ -4,7 +4,7 @@ import 'element-ui/lib/theme-chalk/index.css'
 import 'font-awesome/css/font-awesome.css'
 import 'normalize.css/normalize.css'
 import '@/assets/styles/public.css';
-import App from './App'
+import App from './App.vue'
 import Bal from "babel-polyfill"
 import router from './router'
 import store from './store'

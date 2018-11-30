@@ -7,12 +7,11 @@
 </template>
 
 <script>
-  import {mapGetters, mapActions} from "vuex";
+  import {mapActions} from "vuex";
 
   export default {
     name: 'app',
     components: {},
-    ...mapGetters(["basicInfo", "loginState"]),
     beforeMount() {
       this.$store.dispatch('loginState', {
         state: true
@@ -20,12 +19,11 @@
     },
     watch: {
       '$route'(to, from) {
-         if(!Number(sessionStorage.getItem('main'))){
-           setTimeout(function () {
-             sessionStorage.setItem('main',1)
-             window.location.reload();
-           },500)
-         }
+        if (to.matched.length === 0) {
+          setTimeout(function () {
+            window.location.reload();
+          }, 500)
+        }
       }
     }
   }
@@ -35,8 +33,8 @@
   @import './styles/style.scss';
 
   body {
-    margin: 0px;
-    padding: 0px;
+    margin: 0;
+    padding: 0;
     font-family: Helvetica Neue, Helvetica, PingFang SC, Hiragino Sans GB, Microsoft YaHei, SimSun, sans-serif;
     font-size: 14px;
     -webkit-font-smoothing: antialiased;
@@ -44,8 +42,8 @@
 
   #app {
     position: absolute;
-    top: 0px;
-    bottom: 0px;
+    top: 0;
+    bottom: 0;
     width: 100%;
   }
 
@@ -62,7 +60,7 @@
   .toolbar {
     background: #f2f2f2;
     padding: 10px; //border:1px solid #dfe6ec;
-    margin: 10px 0px;
+    margin: 10px 0;
     .el-form-item {
       margin-bottom: 10px;
     }

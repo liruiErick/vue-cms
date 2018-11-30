@@ -98,16 +98,15 @@ export default {
         : (this.passwordType = '')
     },
     handleLogin() {
-      var that = this
+      let that = this
       this.$refs.loginForm.validate(valid => {
         if (valid) {
-          debugger
           axios.post('api/admin/doLogin', this.loginForm).then(function (resp) {
             if(resp.data.status === 200){
               services.getAllResource().then(function (res) {
                 if(res.data.length>0){
                   sessionStorage.setItem('routerPath',JSON.stringify(siteFunc.renderNoPowerMenus(res.data, resp.data.data.adminPower)))
-                  sessionStorage.setItem('main',0)
+                  sessionStorage.setItem('main',1)
                   that.$router.push('/main')
                 }
               }).catch(function (error) {
@@ -125,6 +124,7 @@ export default {
   },
   watch: {
     '$route'(to, from) {
+      debugger
       if(!Number(sessionStorage.getItem('loginOut'))){
         setTimeout(function () {
           sessionStorage.setItem('loginOut',1)

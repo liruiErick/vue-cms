@@ -25,8 +25,8 @@
                             </div>
                             <div class="info-pannel">
                                 <ul>
-                                  <li><label>{{$t('main.lastLoginTime')}}：</label>{{renderLogs.ip}}</li>
-                                  <li><label>{{$t('main.lastLoginIp')}}：</label>{{renderLogs.date}}</li>
+                                  <li><label>{{$t('main.lastLoginTime')}}：</label>{{renderLogs.date}}</li>
+                                  <li><label>{{$t('main.lastLoginIp')}}：</label>{{renderLogs.ip}}</li>
                                   <li><label>{{$t('main.myPower')}}：</label><el-button size="mini" type="text" @click="showMyResource">{{$t('main.seeDetails')}}</el-button></li>
                                 </ul>
                             </div>
