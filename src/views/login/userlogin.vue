@@ -124,7 +124,6 @@ export default {
   },
   watch: {
     '$route'(to, from) {
-      debugger
       if(!Number(sessionStorage.getItem('loginOut'))){
         setTimeout(function () {
           sessionStorage.setItem('loginOut',1)

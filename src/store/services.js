@@ -72,34 +72,6 @@ export default {
     return reqJsonData('manage/adminResource/getAllResource', params, 'get')
   },
 
-  getTemplateFileInfo(params) {
-    return reqJsonData('manage/template/getTemplateFileText', params, 'get')
-  },
-
-  updateTemplateFileText(params) {
-    return reqJsonData('manage/template/updateTemplateFileText', params)
-  },
-
-  getMyTemplateList(params) {
-    return reqJsonData('manage/template/getMyTemplateList', params, 'get')
-  },
-
-  getTemplatelistfromShop(params) {
-    return reqJsonData('manage/template/getTempsFromShop', params, 'get')
-  },
-
-  installTemp(params) {
-    return reqJsonData('manage/template/installTemp', params, 'get')
-  },
-
-  enableTemp(params) {
-    return reqJsonData('manage/template/enableTemp', params, 'get')
-  },
-
-  uninstallTemp(params) {
-    return reqJsonData('manage/template/uninstallTemp', params, 'get')
-  },
-
   addAdminResource(params) {
     return reqJsonData('manage/adminResource/addOne', params)
   },
@@ -110,90 +82,6 @@ export default {
 
   deleteAdminResource(params) {
     return reqJsonData('manage/adminResource/deleteResource', params, 'get')
-  },
-
-  getSystemConfigs(params) {
-    return reqJsonData('manage/systemConfig/getConfig', params, 'get')
-  },
-
-  updateSystemConfigs(params) {
-    return reqJsonData('manage/systemConfig/updateConfig', params)
-  },
-
-  contentCategoryList(params) {
-    return reqJsonData('manage/contentCategory/getList', params, 'get')
-  },
-
-  addContentCategory(params) {
-    return reqJsonData('manage/contentCategory/addOne', params)
-  },
-
-  updateContentCategory(params) {
-    return reqJsonData('manage/contentCategory/updateOne', params)
-  },
-
-  deleteContentCategory(params) {
-    return reqJsonData('manage/contentCategory/deleteCategory', params, 'get')
-  },
-
-  contentList(params) {
-    return reqJsonData('manage/content/getList', params, 'get')
-  },
-
-  getOneContent(params) {
-    return reqJsonData('manage/content/getContent', params, 'get')
-  },
-
-  addContent(params) {
-    return reqJsonData('manage/content/addOne', params)
-  },
-
-  updateContent(params) {
-    return reqJsonData('manage/content/updateOne', params)
-  },
-
-  deleteContent(params) {
-    return reqJsonData('manage/content/deleteContent', params, 'get')
-  },
-
-  contentTagList(params) {
-    return reqJsonData('manage/contentTag/getList', params, 'get')
-  },
-
-  addContentTag(params) {
-    return reqJsonData('manage/contentTag/addOne', params)
-  },
-
-  updateContentTag(params) {
-    return reqJsonData('manage/contentTag/updateOne', params)
-  },
-
-  deleteContentTag(params) {
-    return reqJsonData('manage/contentTag/deleteTag', params, 'get')
-  },
-
-  contentMessageList(params) {
-    return reqJsonData('manage/contentMessage/getList', params, 'get')
-  },
-
-  addContentMessage(params) {
-    return reqJsonData('manage/contentMessage/addOne', params)
-  },
-
-  deleteContentMessage(params) {
-    return reqJsonData('manage/contentMessage/deleteMessage', params, 'get')
-  },
-
-  regUserList(params) {
-    return reqJsonData('manage/regUser/getList', params, 'get')
-  },
-
-  updateRegUser(params) {
-    return reqJsonData('manage/regUser/updateOne', params)
-  },
-
-  deleteRegUser(params) {
-    return reqJsonData('manage/regUser/deleteUser', params, 'get')
   },
 
   getBakDataList(params) {
@@ -220,45 +108,26 @@ export default {
     return reqJsonData('manage/systemOptionLog/deleteAllLogItem', params, 'get')
   },
 
-  getSystemNotifyList(params) {
-    return reqJsonData('manage/systemNotify/getList', params, 'get')
-  },
-
-  deleteSystemNotify(params) {
-    return reqJsonData('manage/systemNotify/deleteNotifyItem', params, 'get')
-  },
-
-  setNoticeRead(params) {
-    return reqJsonData('manage/systemNotify/setHasRead', params, 'get')
-  },
-
-  getSystemAnnounceList(params) {
-    return reqJsonData('manage/systemAnnounce/getList', params, 'get')
-  },
-
-  deleteSystemAnnounce(params) {
-    return reqJsonData('manage/systemAnnounce/deleteItem', params, 'get')
-  },
-
-  addSystemAnnounce(params) {
-    return reqJsonData('manage/systemAnnounce/addOne', params)
-  },
-
   getShopList(params) {
     return reqJsonData('manage/shopping/restaurants', params, 'get')
   },
+
   updateShop(params){
     return reqJsonData('manage/shopping/updateRestaurant', params)
   },
+
   addRestaurant(params) {
     return reqJsonData('manage/shopping/addRestaurant', params)
   },
+
   delRestaurant(params) {
     return reqJsonData('manage/shopping/delRestaurant', params, 'get')
   },
+
   getCategoryList(params) {
     return reqJsonData('manage/shopping/getCategories', params, 'get')
   },
+
   getGoods(params){
     return reqJsonData('manage/goods/goods', params, 'get')
   }

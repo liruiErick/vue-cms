@@ -356,7 +356,7 @@
   };
 </script>
 <style lang="scss">
-  .option-button {
-    display: inline-block;
-  }
+.option-button {
+  display: inline-block;
+}
 </style>

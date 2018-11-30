@@ -31,8 +31,6 @@
 
 <script>
   import {token, action, domain} from "../../public/qiniuToken";
-//  this.imgages.push({name: index, url: item});
-//  :file-list="imgages"
   export default {
     props: {
       src: Array,
